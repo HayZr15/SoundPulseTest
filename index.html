@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SoundPulse</title>
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Montserrat:wght@700&display=swap" rel="stylesheet">
+
+    <style>
+        body {
+            font-family: 'Montserrat', sans-serif;
+            text-align: center;
+            background: linear-gradient(135deg, #1e1e1e, #292a2d);
+            color: white;
+            margin: 0;
+            padding: 0;
+        }
+
+        /* Logo */
+        .logo-container {
+            margin-top: 20px;
+        }
+
+        .logo {
+            width: 160px;
+        } 
+        /* Titel */
+        h1 {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 3.5em;
+            color: red;
+            text-shadow: 3px 3px 8px rgba(0, 0, 0, 0.6);
+            margin-bottom: 10px;
+        }
+
+        /* Zoekbalk */
+        .search-box {
+            width: 70%;
+            padding: 12px;
+            margin: 15px auto;
+            font-size: 16px;
+            border-radius: 8px;
+            border: none;
+            display: block;
+            background-color: #444;
+            color: white;
+            text-align: center;
+            transition: 0.3s;
+        }
+
+        .search-box:focus {
+            outline: none;
+            background-color: #555;
+        }
+
+        /* Knoppen container */
+        .container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+            gap: 20px;
+            padding: 30px;
+            max-width: 900px;
+            margin: auto;
+        }
+
+        /* Knoppen styling */
+        .sound-btn {
+            width: 130px;
+            height: 130px;
+            border-radius: 50%;
+            border: none;
+            cursor: pointer;
+            background-size: cover;
+            background-position: center;
+            position: relative;
+            box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.3);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .sound-btn:hover {
+            transform: scale(1.1);
+            box-shadow: 4px 4px 20px rgba(255, 64, 129, 0.5);
+        }
+
+        /* Tekst onder de knoppen */
+        .btn-label {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            font-size: 14px;
+            display: block;
+            margin-top: 10px;
+            text-transform: uppercase;
+            color: white; /* Nu wit */
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Logo boven de titel -->
+    <div class="logo-container">
+        <img src="Images/SoundPulselogo.png" alt="SoundPulse Logo" class="logo">
+    </div>
+
+    <h1>SoundPulse 🔊</h1>
+
+    <!-- Zoekfunctie -->
+    <input type="text" class="search-box" id="searchInput" placeholder="Zoek een geluid..." onkeyup="filterSounds()">
+
+    <!-- Geluidsknoppen -->
+    <div class="container" id="soundContainer">
+        <button class="sound-btn" onclick="playSound('nein-stefan')" style="background-image: url('Images/Schermafbeelding_2025-03-17_113620-removebg-preview.png');">
+            <span class="btn-label">nein-nein-stefan</span>
+        </button>
+        <button class="sound-btn" onclick="playSound('nederlands-luchtalarm')" style="background-image: url('Images/Schermafbeelding_2025-03-17_114930-removebg-preview.png');">
+            <span class="btn-label">nederlands-luchtalarm</span>
+        </button>
+        <button class="sound-btn" onclick="playSound('my-son-so-dumb-iq-21')" style="background-image: url('Images/Schermafbeelding_2025-03-17_114445-removebg-preview.png');">
+            <span class="btn-label">my-son-so-dumb-iq-21</span>
+        </button>
+        <button class="sound-btn" onclick="playSound('man-stfu')" style="background-image: url('Images/Schermafbeelding_2025-03-17_114207-removebg-preview.png');">
+            <span class="btn-label">man-stfu</span>
+        </button>
+        <button class="sound-btn" onclick="playSound('white-tee-rizzzzzzz')" style="background-image: url('Images/Schermafbeelding_2025-03-17_114028-removebg-preview.png');">
+            <span class="btn-label">white-tee-rizzzzzzz</span>
+        </button>
+        <button class="sound-btn" onclick="playSound('frikandel')" style="background-image: url('Images/Schermafbeelding_2025-03-17_113914-removebg-preview.png');">
+            <span class="btn-label">frikandel</span>
+        </button>
+        <button class="sound-btn" onclick="playSound('sigma-boy')" style="background-image: url('Images/Schermafbeelding_2025-03-17_114207-removebg-preview.png');">
+            <span class="btn-label">sigma-boy</span>
+        </button>
+        <button class="sound-btn" onclick="playSound('roblox-death-sound')" style="background-image: url('Images/Schermafbeelding_2025-03-17_113914-removebg-preview.png');">
+            <span class="btn-label">roblox-death-sound</span>
+        </button>
+        <button class="sound-btn" onclick="playSound('she-said-she-was-12')" style="background-image: url('Images/Schermafbeelding_2025-03-17_114028-removebg-preview.png');">
+            <span class="btn-label">she-said-she-was-12</span>
+        </button>
+        <button class="sound-btn" onclick="playSound('emotional-damage-emotional-damage-meme')" style="background-image: url('Images/Schermafbeelding_2025-03-17_114445-removebg-preview.png');">
+            <span class="btn-label">emotional-damage-emotional-damage-meme</span>
+        </button>
+        <button class="sound-btn" onclick="playSound('sticking-out-ur-gyat-for-the-rizzler')" style="background-image: url('Images/Schermafbeelding_2025-03-17_114930-removebg-preview.png');">
+            <span class="btn-label">sticking-out-ur-gyat-for-the-rizzler</span>
+        </button>
+        <button class="sound-btn" onclick="playSound('wait-wait-wait-what-the-wait-wait-wait-what-the-hell')" style="background-image: url('Images/Schermafbeelding_2025-03-17_113620-removebg-preview.png');">
+            <span class="btn-label">wait-wait-wait-what-the-hell</span>
+        </button>
+        <button class="sound-btn" onclick="playSound('Bruh')" style="background-image: url('Images/Schermafbeelding_2025-03-17_113914-removebg-preview.png');">
+            <span class="btn-label">Bruh</span>
+        </button>
+    </div>
+
+    <!-- Geluiden -->
+    <audio id="nein-stefan" src="Sounds/nein-stefan.mp3"></audio>
+    <audio id="nederlands-luchtalarm" src="Sounds/nederlands-luchtalarm.mp3"></audio>
+    <audio id="my-son-so-dumb-iq-21" src="Sounds/my-son-so-dumb-iq-21.mp3"></audio>
+    <audio id="man-stfu" src="Sounds/man-stfu.mp3"></audio>
+    <audio id="white-tee-rizzzzzzz" src="Sounds/white-tee-rizzzzzzz-boi.mp3"></audio>
+    <audio id="frikandel" src="Sounds/frikandelll-ik-lussttt-jou-welllll.mp3"></audio>
+    <audio id="sigma-boy" src="Sounds/sigma-boy.mp3"></audio>
+    <audio id="roblox-death-sound" src="Sounds/roblox-death-sound_1.mp3"></audio>
+    <audio id="she-said-she-was-12" src="Sounds/she-said-she-was-12.mp3"></audio>
+    <audio id="emotional-damage-emotional-damage-meme" src="Sounds/emotional-damage-meme.mp3"></audio>
+    <audio id="sticking-out-ur-gyat-for-the-rizzler" src="Sounds/sticking-out-ur-gyat-for-the-rizzler.mp3"></audio>
+    <audio id="wait-wait-wait-what-the-wait-wait-wait-what-the-hell" src="Sounds/wait-wait-wait-what-the-hell-legend-sound.mp3"></audio>
+    <audio id="Bruh" src="Sounds/Bruh.mp3"></audio>
+    
+
+    <script>
+        let currentSound = null;
+
+        function playSound(soundId) {
+            if (currentSound) {
+                currentSound.pause();
+                currentSound.currentTime = 0;
+            }
+
+            let sound = document.getElementById(soundId);
+            if (sound) {
+                sound.play().catch(error => console.error("Playback error:", error));
+                currentSound = sound;
+            } else {
+                console.error("Geluid niet gevonden:", soundId);
+            }
+        }
+
+        function filterSounds() {
+            let input = document.getElementById("searchInput").value.toLowerCase();
+            let buttons = document.querySelectorAll(".sound-btn");
+
+            buttons.forEach(button => {
+                let labelElement = button.querySelector(".btn-label");
+                if (labelElement) {
+                    let label = labelElement.textContent.toLowerCase();
+                    button.style.display = label.includes(input) ? "block" : "none";
+                }
+            });
+        }
+    </script>
+
+</body>
+</html>
